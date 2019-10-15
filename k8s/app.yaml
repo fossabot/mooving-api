@@ -1,0 +1,15 @@
+apiVersion: 0.3.0
+environments:
+  local:
+    destination:
+      namespace: default
+      server: https://192.168.39.39:8443
+    k8sVersion: v1.10.0
+    path: local
+kind: ksonnet.io/app
+name: api
+registries:
+  incubator:
+    protocol: github
+    uri: github.com/ksonnet/parts/tree/master/incubator
+version: 0.0.1

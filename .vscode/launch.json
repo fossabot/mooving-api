@@ -1,0 +1,40 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [{
+      "type": "node",
+      "request": "launch",
+      "name": "Jest",
+      "outputCapture": "std",
+      "preLaunchTask": "tsc",
+      "runtimeArgs": [
+        "--nolazy",
+        "-r",
+        "ts-node/register",
+      ],
+      "args": [
+        "${workspaceFolder}/node_modules/.bin/jest",
+        "--config", "${workspaceFolder}/jest.config.js",
+        "--runInBand",
+      ],
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch Program",
+      "runtimeArgs": [
+        "-r",
+        "ts-node/register"
+      ],
+      "args": [
+        "./src/owner/index.ts"
+      ],
+      "env": {
+        // "CASSANDRA_KEYSPACE": "ride_hailing",
+        "TWILIO_API_KEY": "CNvD1uktQu7wio61sVNLPNaZXP0OBJVa",
+      }
+    }
+  ]
+}

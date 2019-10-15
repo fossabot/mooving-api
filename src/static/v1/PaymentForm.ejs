@@ -1,0 +1,46 @@
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="./PaymentForm.css" />
+</head>
+
+<body>
+  <main>
+    <form id="checkout-form" action="#">
+      <div class="form-field--wrapper">
+        <div class="form-field--row">
+          <div class="field-wrapper cardNumber">
+            <p class="field-label" id="ccn-label">Card number</p>
+            <div class="field-container card-logo-container">
+              <div class="card-logo">
+                <img id="card-logo" src="https://files.readme.io/d1a25b4-generic-card.png" />
+              </div>
+              <div class="input " data-bluesnap="ccn"></div>
+            </div>
+          </div>
+        </div>
+        <div class="form-field--row">
+          <div class="field-wrapper expiryDate">
+            <p class="field-label" id="exp-label">Expiry date</p>
+            <div class="field-container">
+              <div class="input" data-bluesnap="exp"></div>
+            </div>
+          </div>
+          <div class="field-wrapper cvvCode">
+            <p class="field-label" id="cvv-label">CVV Code</p>
+            <div class="field-container">
+              <div class="input" data-bluesnap="cvv"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </main>
+</body>
+<!--BlueSnap Hosted Payment Fields JavaScript file-->
+<script type="text/javascript" src="<%=blueSnapURL%>"></script>
+<script type="text/javascript" src="./PaymentForm.js"></script>
+
+</html>

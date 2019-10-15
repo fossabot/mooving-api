@@ -1,0 +1,282 @@
+/* Font */
+
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,700");
+
+/* Replace: above line with the comment below after implementation Gilroy in app */
+
+/*
+@import url("//hello.myfonts.net/count/3855b6");
+
+@font-face {
+  font-weight: 400;
+  font-family: "Gilroy";
+  src: url("//dav.city/webfonts/3855B6_0_0.eot");
+  src: url("//dav.city/webfonts/3855B6_0_0.eot?#iefix") format("embedded-opentype"),
+    url("//dav.city/webfonts/3855B6_0_0.woff2") format("woff2"),
+    url("//dav.city/webfonts/3855B6_0_0.woff") format("woff"),
+    url("//dav.city/webfonts/3855B6_0_0.ttf") format("truetype");
+}
+
+@font-face {
+  font-weight: 700;
+  font-family: "Gilroy";
+  src: url("//dav.city/webfonts/3855B6_1_0.eot");
+  src: url("//dav.city/webfonts/3855B6_1_0.eot?#iefix") format("embedded-opentype"),
+    url("//dav.city/webfonts/3855B6_1_0.woff2") format("woff2"),
+    url("//dav.city/webfonts/3855B6_1_0.woff") format("woff"),
+    url("//dav.city/webfonts/3855B6_1_0.ttf") format("truetype");
+}
+*/
+
+/* Variables */
+
+:root {
+  --white: white;
+  --grey0: #f6f6f6;
+  --grey1: #ededed;
+  --grey2: #a0a0a0;
+  --black: black;
+  --davGreen: #bce3c6;
+  --davOrange: #ffae84;
+  --davRed: #ff4163;
+  --sizeMain: 60px;
+  --sizeSpace: 20px;
+  --fontMontserrat: "Montserrat";
+  --fontGilroy: "Gilroy";
+  --fontFallback: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol";
+  --transitionEaseInQuart: cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+/* Global */
+
+*,
+*:after *:before {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: var(--grey0);
+  /* Replace: --fontMontserrat with --fontGilroy after implementation Gilroy in app*/
+  font-family: var(--fontMontserrat), var(--fontFallback);
+  font-size: 100%;
+  margin: 0;
+}
+
+main {
+  height: 100vh;
+}
+main * {
+  transition: all 300ms var(--transitionEaseInOutQuart);
+}
+
+/* Form */
+form {
+  display: flex;
+  flex: 1;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0;
+}
+
+/* Form fields */
+
+.form-field--row {
+  display: flex;
+  flex-direction: row;
+}
+
+.field-wrapper {
+  background-color: var(--white);
+  width: 100%;
+  height: var(--sizeMain);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border-top: 1px solid var(--grey1);
+  padding: 0 calc(var(--sizeSpace) / 2);
+  padding-bottom: calc(var(--sizeSpace) / 2);
+  overflow: hidden;
+}
+
+.field-wrapper.expiryDate,
+.field-wrapper.cvvCode {
+  border-bottom: 1px solid var(--grey1);
+}
+
+.field-wrapper.expiryDate {
+  position: relative;
+  border-right: 1px solid var(--grey1);
+}
+
+.field-label {
+  font-size: 12px;
+  margin: calc(var(--sizeSpace) / 2) 0 0 0;
+  color: var(--grey2);
+}
+
+.field-container {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+}
+
+.input-container {
+  padding: 6px 0;
+  height: 18px;
+}
+
+/* Credit card image */
+
+.card-logo {
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 2px;
+  top: 9px;
+}
+
+.card-logo-container {
+  padding-left: 32px;
+}
+
+.card-logo img {
+  height: calc(var(--sizeSpace) / 1.25);
+  width: auto;
+}
+
+/* Alerts */
+
+.alert {
+  display: none;
+  animation: 480ms fadeIn both;
+  animation-timing-function: var(--transitionEaseInOutQuart);
+  border-radius: 5px;
+  margin: var(--sizeSpace);
+  padding: calc(var(--sizeSpace) / 4) calc(var(--sizeSpace) / 2);
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+}
+
+.alert__succes.active {
+  display: flex;
+  background-color: var(--davGreen);
+}
+
+.alert__warning.active {
+  display: flex;
+  background-color: var(--davOrange);
+}
+
+.alert__error.active {
+  display: flex;
+  background-color: var(--davRed);
+}
+
+/* Button */
+
+button {
+  /* Replace: --fontMontserrat with --fontGilroy after implementation Gilroy in app*/
+  font-family: var(--fontMontserrat), var(--fontFallback);
+}
+
+.button {
+  height: calc(var(--sizeMain) / 1.25);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: var(--sizeMain);
+  font-size: 16px;
+  font-weight: 600;
+  padding: calc(var(--sizeSpace) / 2) calc(var(--sizeSpace) * 2);
+}
+.button.button__primary {
+  border: solid 2px #000;
+  background-color: transparent;
+  margin: 0 var(--sizeSpace) calc(var(--sizeSpace) * 2) auto;
+}
+
+@-webkit-keyframes swing {
+    15%
+    {
+        -webkit-transform: translateX(5px);
+        transform: translateX(5px);
+    }
+    30%
+    {
+        -webkit-transform: translateX(-5px);
+       transform: translateX(-5px);
+    } 
+    50%
+    {
+        -webkit-transform: translateX(3px);
+        transform: translateX(3px);
+    }
+    65%
+    {
+        -webkit-transform: translateX(-3px);
+        transform: translateX(-3px);
+    }
+    80%
+    {
+        -webkit-transform: translateX(2px);
+        transform: translateX(2px);
+    }
+    100%
+    {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+
+@keyframes swing {
+  15%
+  {
+      -webkit-transform: translateX(5px);
+      transform: translateX(5px);
+  }
+  30%
+  {
+      -webkit-transform: translateX(-5px);
+      transform: translateX(-5px);
+  }
+  50%
+  {
+      -webkit-transform: translateX(3px);
+      transform: translateX(3px);
+  }
+  65%
+  {
+      -webkit-transform: translateX(-3px);
+      transform: translateX(-3px);
+  }
+  80%
+  {
+      -webkit-transform: translateX(2px);
+      transform: translateX(2px);
+  }
+  100%
+  {
+      -webkit-transform: translateX(0);
+      transform: translateX(0);
+  }
+}
+
+.swing {
+  -webkit-animation: swing 1s ease;
+  animation: swing 1s ease;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+}

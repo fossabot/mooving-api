@@ -1,0 +1,8 @@
+node_modules
+build
+.githooks
+.github
+k8s
+!k8s/vendor
+dist
+travis
