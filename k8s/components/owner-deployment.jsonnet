@@ -2,7 +2,7 @@ local env = std.extVar('__ksonnet/environments');
 local params = std.extVar('__ksonnet/params').components['owner-deployment'];
 local version = std.extVar('IMAGE_VERSION');
 {
-  apiVersion: 'apps/v1beta1',
+  apiVersion: 'apps/v1',
   kind: 'Deployment',
   metadata: {
     name: 'api-owner',

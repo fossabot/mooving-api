@@ -2,7 +2,7 @@ local env = std.extVar('__ksonnet/environments');
 local params = std.extVar('__ksonnet/params').components['rider-deployment'];
 local version = std.extVar('IMAGE_VERSION');
 {
-  apiVersion: 'apps/v1beta1',
+  apiVersion: 'apps/v1',
   kind: 'Deployment',
   metadata: {
     name: 'api-rider',
@@ -65,13 +65,6 @@ local version = std.extVar('IMAGE_VERSION');
               successThreshold: 1,
               failureThreshold: 1,
             },
-            volumeMounts: [
-              {
-                name: 'gcp-credentials-volume',
-                mountPath: '/gcp-credentials',
-                readOnly: true,
-              },
-            ],
             env: [
               {
                 name: 'CASSANDRA_ENDPOINTS',
@@ -162,10 +155,6 @@ local version = std.extVar('IMAGE_VERSION');
                 name: 'RAYVEN_FEEDBACK_TOPIC',
                 value: params.RAYVEN_FEEDBACK_TOPIC,
               },
-              {
-                name: 'GOOGLE_APPLICATION_CREDENTIALS',
-                value: '/gcp-credentials/' + params.GCP_CREDENTIALS_FILE_NAME,
-              },
             ],
             ports: [
               {
@@ -201,14 +190,6 @@ local version = std.extVar('IMAGE_VERSION');
                 containerPort: 8080,
               },
             ],
-          },
-        ],
-        volumes: [
-          {
-            name: 'gcp-credentials-volume',
-            secret: {
-              secretName: 'gcp-credentials',
-            },
           },
         ],
       },

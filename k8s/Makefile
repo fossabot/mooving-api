@@ -15,10 +15,9 @@ build: FORCE
 	docker build ../. -f Dockerfile -t api:$(TIMESTAMP)
 	docker tag api:$(TIMESTAMP) gcr.io/$(PROJECT)/api:$(TIMESTAMP)
 	docker tag api:$(TIMESTAMP) gcr.io/$(PROJECT)/api:latest
-	docker push gcr.io/$(PROJECT)/api:$(TIMESTAMP)
 
-local-deploy: TIMESTAMP=$(shell date +%y%m%d-%H%M -u)
-local-deploy: FORCE
+deploy: TIMESTAMP=$(shell date +%y%m%d-%H%M -u)
+deploy: FORCE
 	echo Building Local with timestamp $(TIMESTAMP)
 	eval "$$(minikube docker-env)" &&\
 		docker build . -f Dockerfile.nginx -t gcr.io/$(PROJECT)/nginx:$(TIMESTAMP) &&\

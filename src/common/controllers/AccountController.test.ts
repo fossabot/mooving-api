@@ -9,8 +9,8 @@ import { IUser } from '../User';
 import { IPersonalDetails } from '../../owner/cassandra/Owner';
 
 const TEST_USER_ID = 'ffffffff-ffff-ffff-ffff-ffffffffffff';
-const TEST_USER_PHONE = '<PHONE_NUMBER>';
-const TEST_USER_COUNTRY_CODE = '<PHONE_EXTENSION>';
+const TEST_USER_PHONE = '972500000000';
+const TEST_USER_COUNTRY_CODE = '972';
 
 describe('AccountController class', () => {
 

@@ -13,7 +13,7 @@ import AccountController from './controllers/AccountController';
 chai.use(chaiHttp);
 const expect = chai.expect;
 const TWILIO_INVALID_VERIFICATION_CODE = '60022';
-const TEST_USER_PHONE_NUMBER = '<PHONE_NUMBER>';
+const TEST_USER_PHONE_NUMBER = '972500000000';
 const REGULAR_USER_PHONE_NUMBER = '<PHONE_NUMBER>';
 const TEST_USER_AUTH_TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImZmZmZmZmZmLWZmZmYtZmZmZi1mZm' +
   'ZmLWZmZmZmZmZmZmZmZiIsImlhdCI6MTU0OTg5OTg2OH0.a8B_zN8iALmRW0AQPrNGYW_ou5--8p5uR2adFOgnArk';
